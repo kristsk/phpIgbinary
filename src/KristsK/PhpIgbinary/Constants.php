@@ -1,0 +1,63 @@
+<?php
+
+namespace KristsK\PhpIgbinary;
+
+/**
+ * Class Constants
+ * @package KristsK\PhpIgbinary
+ */
+final class Constants {
+
+    const IGBINARY_TYPE_NULL = 0x00;
+
+    const IGBINARY_TYPE_REF8 = 0x01;
+    const IGBINARY_TYPE_REF16 = 0x02;
+    const IGBINARY_TYPE_REF32 = 0x03;
+
+    const IGBINARY_TYPE_BOOL_FALSE = 0x04;
+    const IGBINARY_TYPE_BOOL_TRUE = 0x05;
+
+    const IGBINARY_TYPE_LONG8P = 0x06;
+    const IGBINARY_TYPE_LONG8N = 0x07;
+    const IGBINARY_TYPE_LONG16P = 0x08;
+    const IGBINARY_TYPE_LONG16N = 0x09;
+    const IGBINARY_TYPE_LONG32P = 0x0a;
+    const IGBINARY_TYPE_LONG32N = 0x0b;
+
+    const IGBINARY_TYPE_DOUBLE = 0x0c;
+
+    const IGBINARY_TYPE_STRING_EMPTY = 0x0d;
+
+    const IGBINARY_TYPE_STRING_ID8 = 0x0e;
+    const IGBINARY_TYPE_STRING_ID16 = 0x0f;
+    const IGBINARY_TYPE_STRING_ID32 = 0x10;
+
+    const IGBINARY_TYPE_STRING8 = 0x11;
+    const IGBINARY_TYPE_STRING16 = 0x12;
+    const IGBINARY_TYPE_STRING32 = 0x13;
+
+    const IGBINARY_TYPE_ARRAY8 = 0x14;
+    const IGBINARY_TYPE_ARRAY16 = 0x15;
+    const IGBINARY_TYPE_ARRAY32 = 0x16;
+
+    const IGBINARY_TYPE_OBJECT8 = 0x17;
+    const IGBINARY_TYPE_OBJECT16 = 0x18;
+    const IGBINARY_TYPE_OBJECT32 = 0x19;
+
+    const IGBINARY_TYPE_LONG64P = 0x20;
+    const IGBINARY_TYPE_LONG64N = 0x21;
+
+    const IGBINARY_TYPE_OBJECT_ID8 = 0x1a;
+    const IGBINARY_TYPE_OBJECT_ID16 = 0x1b;
+    const IGBINARY_TYPE_OBJECT_ID32 = 0x1c;
+
+    const IGBINARY_TYPE_OBJECT_SER8 = 0x1d;
+    const IGBINARY_TYPE_OBJECT_SER16 = 0x1e;
+    const IGBINARY_TYPE_OBJECT_SER32 = 0x1f;
+
+    const IGBINARY_TYPE_OBJREF8 = 0x22;
+    const IGBINARY_TYPE_OBJREF16 = 0x23;
+    const IGBINARY_TYPE_OBJREF32 = 0x24;
+
+    const IGBINARY_TYPE_REF = 0x25;
+}

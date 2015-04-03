@@ -1,0 +1,24 @@
+{
+  "name": "kristsk/PhpIgbinary",
+  "description": "Reads and unpacks data serialized with igbinary",
+  "license": "MIT",
+  "keywords": ["igbinary"],
+  "authors": [
+    {
+      "name": "Krists Krigers",
+      "email": "kristsk@1024.lv"
+    }
+  ],
+  "require": {
+    "ext-igbinary": "*",
+    "psy/psysh": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "KristsK\\PhpIgbinary\\": "src/KristsK/PhpIgbinary"
+    }
+  }
+}
