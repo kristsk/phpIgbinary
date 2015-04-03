@@ -128,10 +128,10 @@ class Printer {
     protected function printCompoundValue(AbstractCompoundValue $compoundValue) {
 
         if (!$compoundValue->getValues()) {
-            $this->printMessageWithNewline('[]');
+            $this->printMessage(    '[]');
         }
         else {
-            $this->printMessage('[');
+            $this->printMessageWithNewline('[');
 
             $compoundValueElements = $compoundValue->getValues();
             foreach ($compoundValueElements as $n => $compoundValueElement) {
