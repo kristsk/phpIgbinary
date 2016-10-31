@@ -6,6 +6,8 @@ use KristsK\PhpIgbinary\Elements\AbstractElement;
 use KristsK\PhpIgbinary\Elements\Tags\ReferenceTag;
 use KristsK\PhpIgbinary\Elements\Tags\StringTag;
 use KristsK\PhpIgbinary\Elements\Values\AbstractValue;
+use KristsK\PhpIgbinary\Elements\Values\Compound\ArrayValue;
+use KristsK\PhpIgbinary\Elements\Values\Compound\ObjectValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\AbstractScalarValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\BooleanValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\DoubleValue;
@@ -13,8 +15,6 @@ use KristsK\PhpIgbinary\Elements\Values\Scalar\EmptyStringValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\LongValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\NullValue;
 use KristsK\PhpIgbinary\Elements\Values\Scalar\StringValue;
-use KristsK\PhpIgbinary\Elements\Values\Compound\ArrayValue;
-use KristsK\PhpIgbinary\Elements\Values\Compound\ObjectValue;
 use KristsK\PhpIgbinary\Reader\References;
 use KristsK\PhpIgbinary\Reader\Stats;
 use KristsK\PhpIgbinary\Reader\Strings;
@@ -23,7 +23,8 @@ use KristsK\PhpIgbinary\Reader\Strings;
  * Class Reader
  * @package KristsK\PhpIgbinary
  */
-class Reader {
+class Reader
+{
 
     /**
      * @var string
@@ -324,7 +325,7 @@ class Reader {
 
         $type = $this->unpackLong8();
 
-        $result = null;
+        $result = NULL;
         switch ($type) {
             case Constants::IGBINARY_TYPE_NULL:
                 $result = $this->loadNull();
@@ -506,9 +507,9 @@ class Reader {
      * @param ArrayValue|null $array
      * @return ArrayValue
      */
-    protected function unpackArray($elementCount, ArrayValue $array = null) {
+    protected function unpackArray($elementCount, ArrayValue $array = NULL) {
 
-        if ($array === null) {
+        if ($array === NULL) {
             $array = new ArrayValue();
         }
 
@@ -533,7 +534,10 @@ class Reader {
      */
     protected function unpackObject($className, ObjectValue $object) {
 
-        $object->setClassName($className);
+        $object->setClassName($className instanceof StringTag
+            ? $className->getStringValue()->getPhpValue()
+            : $className->getPhpValue()
+        );
 
         $packingType = $this->unpackLong8();
 
@@ -557,7 +561,8 @@ class Reader {
 //                $elements = $this->unpackAndTakeString($this->unpackLong32());
 //                break;
             default:
-                throw new \RuntimeException(sprintf('Do no know how to handle object serialization type 0x%02x', $packingType));
+                throw new \RuntimeException(sprintf('Do no know how to handle object serialization type 0x%02x',
+                    $packingType));
         }
 
         $object->setValuesFromArrayValue($array);
