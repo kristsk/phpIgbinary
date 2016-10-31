@@ -34,5 +34,5 @@ abstract class AbstractScalarValue extends AbstractValue {
     /**
      * @return string
      */
-    abstract function __toString();
+    abstract public function __toString();
 }

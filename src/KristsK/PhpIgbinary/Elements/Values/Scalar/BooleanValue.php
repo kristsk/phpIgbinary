@@ -11,7 +11,7 @@ class BooleanValue extends AbstractScalarValue {
     /**
      * @param bool $value
      */
-    function __construct($value) {
+    public function __construct($value) {
 
         parent::__construct($value);
     }
