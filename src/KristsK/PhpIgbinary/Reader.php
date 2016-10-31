@@ -325,7 +325,6 @@ class Reader
 
         $type = $this->unpackLong8();
 
-        $result = NULL;
         switch ($type) {
             case Constants::IGBINARY_TYPE_NULL:
                 $result = $this->loadNull();
