@@ -392,7 +392,7 @@ class Reader {
             case Constants::IGBINARY_TYPE_STRING_ID32:
                 $result = $this->loadStringById($this->unpackLong32());
                 break;
-            case Constants::IGBINARY_TYPE_REF;
+            case Constants::IGBINARY_TYPE_REF:
                 $result = $this->loadReferencedElement();
                 break;
             case Constants::IGBINARY_TYPE_REF8:
