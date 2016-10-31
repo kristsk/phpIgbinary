@@ -26,7 +26,7 @@ use KristsK\PhpIgbinary\Reader\Strings;
 class Reader {
 
     /**
-     * @var array
+     * @var string
      */
     protected $packed;
 
@@ -41,7 +41,7 @@ class Reader {
     protected $switchByteOrder;
 
     /**
-     * @var string
+     * @var AbstractElement
      */
     protected $rootElement;
 
