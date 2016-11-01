@@ -550,15 +550,6 @@ class Reader
             case Constants::IGBINARY_TYPE_ARRAY32:
                 $array = $this->unpackArray($this->unpackLong32());
                 break;
-//            case Constants::IGBINARY_TYPE_OBJECT_SER8:
-//                $elements = $this->unpackAndTakeString($this->unpackLong8());
-//                break;
-//            case Constants::IGBINARY_TYPE_OBJECT_SER16:
-//                $elements = $this->unpackAndTakeString($this->unpackLong16());
-//                break;
-//            case Constants::IGBINARY_TYPE_OBJECT_SER32:
-//                $elements = $this->unpackAndTakeString($this->unpackLong32());
-//                break;
             default:
                 throw new \RuntimeException(sprintf('Do no know how to handle object serialization type 0x%02x',
                     $packingType));
