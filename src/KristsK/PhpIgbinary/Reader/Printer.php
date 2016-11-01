@@ -78,17 +78,13 @@ class Printer {
 
         if ($value instanceof ArrayValue) {
             $this->printArrayValue($value);
-        }
-        elseif ($value instanceof ObjectValue) {
+        } elseif ($value instanceof ObjectValue) {
             $this->printObjectValue($value);
-        }
-        elseif ($value instanceof AbstractScalarValue) {
+        } elseif ($value instanceof AbstractScalarValue) {
             $this->printScalarValue($value);
-        }
-        elseif ($value instanceof ReferenceTag) {
+        } elseif ($value instanceof ReferenceTag) {
             $this->printReferenceTag($value);
-        }
-        else {
+        } else {
             throw new Exception('Do not know how to print class "' . get_class($value) . '"');
         }
     }
@@ -128,7 +124,7 @@ class Printer {
     protected function printCompoundValue(AbstractCompoundValue $compoundValue) {
 
         if (!$compoundValue->getValues()) {
-            $this->printMessage(    '[]');
+            $this->printMessage('[]');
         }
         else {
             $this->printMessageWithNewline('[');
@@ -142,8 +138,7 @@ class Printer {
 
                 if ($key instanceof AbstractScalarValue) {
                     $this->printScalarValue($key);
-                }
-                else {
+                } else {
                     throw new Exception('Do not know how to print compound key class "' . get_class($key) . '"');
                 }
 
@@ -155,8 +150,7 @@ class Printer {
 
                 if ($n != count($compoundValueElements) - 1) {
                     $this->printMessageWithNewline(',');
-                }
-                else {
+                } else {
                     $this->printMessageWithNewline('');
                 }
             }
@@ -179,8 +173,7 @@ class Printer {
 
         if ($tag->getUseCount() === 1) {
             $this->prettyPrint($tag->getValue());
-        }
-        else {
+        } else {
             $this->printMessage($tag->__toString());
         }
     }
