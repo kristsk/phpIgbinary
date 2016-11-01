@@ -240,12 +240,10 @@ class Reader
 
         if ($unpacked instanceof ReferenceTag) {
             $result = $unpacked;
-        }
-        elseif ($unpacked instanceof AbstractValue) {
+        } elseif ($unpacked instanceof AbstractValue) {
 
             $result = $this->references->add($unpacked);
-        }
-        else {
+        } else {
             throw new Exception('Can not load referenced element from instance of "' . get_class($unpacked) . '"');
         }
 
